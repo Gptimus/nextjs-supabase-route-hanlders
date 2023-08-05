@@ -20,7 +20,11 @@ export const NewTodo = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="title" />
+      <input
+        className="w-full bg-black border-2 rounded-lg text-slate-300 py-3 px-2 outline-none border-purple-800"
+        type="text"
+        name="title"
+      />
     </form>
   );
 };

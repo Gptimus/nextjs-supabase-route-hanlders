@@ -20,8 +20,13 @@ export const Todo = ({ todo }: { todo: TodoType }) => {
     router.refresh();
   };
   return (
-    <p>
-      <button onClick={handleSubmit}>{todo.title}</button>
-    </p>
+    <div className="my-3">
+      <button
+        className="bg-purple-800 hover:bg-purple-800/90 duration-300 w-full py-4 rounded-lg"
+        onClick={handleSubmit}
+      >
+        {todo.title}
+      </button>
+    </div>
   );
 };
