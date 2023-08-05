@@ -11,7 +11,10 @@ export async function GET(req: Request) {
       },
     }
   );
-  const { data } = await supabase.from("todos").select();
+  const { data } = await supabase
+    .from("todos")
+    .select()
+    .match({ is_completed: false });
 
   return NextResponse.json(data);
 }
