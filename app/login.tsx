@@ -25,19 +25,19 @@ export const Login = () => {
   return (
     <div className="justify-end flex text-white gap-4 my-6 mr-7">
       <button
-        className="bg-purple-700 hover:bg-purple-700/90 duration-300 py-3 px-5 rounded-md text-xs"
+        className="text-sm text-purple-600 hover:text-purple-600/90 duration-200"
         onClick={signUp}
       >
         Sign Up
       </button>
       <button
-        className="bg-purple-700 hover:bg-purple-700/90 duration-300 py-3 px-5 rounded-md text-xs"
+        className="text-sm text-purple-600 hover:text-purple-600/90 duration-200"
         onClick={signIn}
       >
         Sign In
       </button>
       <button
-        className="bg-purple-700 hover:bg-purple-700/90 duration-300 py-3 px-5 rounded-md text-xs"
+        className="text-sm text-purple-600 hover:text-purple-600/90 duration-200"
         onClick={signOut}
       >
         Sign Out

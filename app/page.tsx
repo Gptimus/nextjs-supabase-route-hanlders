@@ -1,3 +1,5 @@
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import { Login } from "./login";
 import { NewTodo } from "./new-todo";
 import { Todo, TodoType } from "./todo";
@@ -5,10 +7,16 @@ import { Todo, TodoType } from "./todo";
 export const revalidate = 0;
 
 const Home = async () => {
-  const response = await fetch("http://localhost:3000/api/todos", {
-    cache: "no-cache",
+  const supabase = createServerComponentClient({
+    cookies,
   });
-  const todos: TodoType[] = await response.json();
+  const { data } = await supabase
+    .from("todos")
+    .select()
+    .match({ is_completed: false });
+
+  const todos = data as TodoType[];
+
   return (
     <>
       <Login />
@@ -21,7 +29,7 @@ const Home = async () => {
             </h1>
           </div>
           <NewTodo />
-          {todos.map((todo) => (
+          {todos.map((todo: TodoType) => (
             <Todo key={todo.id} todo={todo} />
           ))}
         </div>
